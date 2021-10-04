@@ -15,7 +15,6 @@ public class SearchPage {
             By.xpath("//div[contains(@class,'search_price') and not(contains(@class,'discount_combined'))]");
     private By blockWithGame = By.xpath("//div[@id='search_resultsRows']//a");
 
-
     public SearchPage() {
 
     }
@@ -30,10 +29,11 @@ public class SearchPage {
     }
 
     public boolean isGamesListNotEmpty() {
-        return !DriverManager.getDriver().findElements(By.xpath(" //div[@id='search_resultsRows']//a")).isEmpty();
+        return !DriverManager.getDriver().findElements(blockWithGame).isEmpty();
     }
 
     public List getPriceGame(int count) {
+        DriverManager.getDriver().navigate().to(DriverManager.getDriver().getCurrentUrl());
         List<WebElement> elementList = DriverManager.getDriver().findElements(searchPriceGame);
         if (elementList.size() < count) {
             count = elementList.size();
@@ -61,18 +61,4 @@ public class SearchPage {
         }
         return true;
     }
-
-    public boolean checkURL(String beforeURL) {
-        String afterURL = DriverManager.getDriver().getCurrentUrl();
-        for (int i = 0; i < 200; i++) {
-            if (beforeURL.equals(afterURL)) {
-                afterURL = DriverManager.getDriver().getCurrentUrl();
-            } else {
-                return false;
-            }
-        }
-        return true;
-    }
-
-
 }

@@ -1,7 +1,6 @@
 package com.example;
 
 import com.example.config.TestDataProperties;
-import com.example.core.DriverManager;
 import com.example.page_object.MainPage;
 import com.example.page_object.SearchPage;
 import org.testng.annotations.DataProvider;
@@ -30,7 +29,6 @@ public class MainPageTest extends BaseTest {
         assertTrue(searchPage.isSearchPageTitleDisplayed());
         assertTrue(searchPage.isGamesListNotEmpty());
         searchPage.clickSortPriceDesc();
-        searchPage.checkURL(DriverManager.getDriver().getCurrentUrl());
         assertTrue(searchPage.checkPriceDesc(searchPage.getPriceGame(count)));
     }
 
