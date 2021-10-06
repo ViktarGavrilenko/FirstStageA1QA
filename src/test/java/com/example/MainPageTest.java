@@ -1,15 +1,13 @@
 package com.example;
 
 import com.example.config.TestDataProperties;
+import com.example.core.DriverUtilities;
 import com.example.page_object.MainPage;
 import com.example.page_object.SearchPage;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class MainPageTest extends BaseTest {
-
-    public static MainPage mainPage;
-    public static SearchPage searchPage;
 
     @DataProvider
     public Object[][] dataForTest() {
@@ -20,16 +18,18 @@ public class MainPageTest extends BaseTest {
     }
 
     @Test(dataProvider = "dataForTest")
-    public void testSteamPowered(String nameGame, int count) {
-        mainPage = new MainPage();
-        assertTrue(mainPage.isHomePageTitleDisplayed());
-        mainPage.inputDataIntoSearch(nameGame);
+    public void testSteamPowered(String gameName, int count) {
+        DriverUtilities.goToUrl();
+        MainPage mainPage = new MainPage();
+        assertTrue(mainPage.isHomePageTitleDisplayed(), "Проверка открытия главной страницы");
+        mainPage.inputDataIntoSearch(gameName);
         mainPage.clickSearchBtn();
-        searchPage = new SearchPage();
-        assertTrue(searchPage.isSearchPageTitleDisplayed());
-        assertTrue(searchPage.isGamesListNotEmpty());
+        SearchPage searchPage = new SearchPage();
+        assertTrue(searchPage.isSearchPageTitleDisplayed(), "Проверка открытия страницы с результатами поиска");
+        assertTrue(searchPage.isGamesListNotEmpty(), "Проверяем, что список найденных игр не пустой");
         searchPage.clickSortPriceDesc();
-        assertTrue(searchPage.checkPriceDesc(searchPage.getPriceGame(count)));
+        assertTrue(searchPage.checkPriceDesc(searchPage.getGamePrice(count)), "Проверяем, что игры " +
+                "отсортированы корректно");
     }
 
 }

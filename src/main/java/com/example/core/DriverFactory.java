@@ -2,6 +2,7 @@ package com.example.core;
 
 import com.example.config.ConfigurationProperties;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -10,9 +11,12 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.util.concurrent.TimeUnit;
 
 public class DriverFactory {
+
+    private static final Logger log = Logger.getLogger(DriverFactory.class);
+
     public static WebDriver createDriver() {
         ConfigurationProperties configProperties = ConfigurationProperties.getInstance();
-        DesiredCapabilities capabilities = null;
+        DesiredCapabilities capabilities;
         WebDriver driver = null;
         switch (configProperties.getBrowserType()) {
             case CHROME:
@@ -27,7 +31,8 @@ public class DriverFactory {
                 break;
             case FIREFOX:
                 break;
-
+            default:
+                log.error("Проверте название браузера");
         }
         return driver;
     }
