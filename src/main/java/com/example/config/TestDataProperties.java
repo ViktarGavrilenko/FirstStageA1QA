@@ -4,20 +4,24 @@ import ru.qatools.properties.Property;
 import ru.qatools.properties.PropertyLoader;
 import ru.qatools.properties.Resource;
 
-@Resource.Classpath("testdata.properties")
+@Resource.Classpath("testData.properties")
 public class TestDataProperties {
 
-    @Property("first.game")
-    private String firstGame;
+    @Property("main.page")
+    private String mainPage;
 
-    @Property("first.N")
-    private int firstN;
+    @Property("basic.auth.page")
+    private String basicAuthPage;
 
-    @Property("second.game")
-    private String secondGame;
+    @Property("javascript.alerts.page")
+    private String javascriptAlertsPage;
 
-    @Property("second.N")
-    private int secondN;
+    @Property("horizontal.slider.page")
+    private String horizontalSlidePage;
+
+    @Property("iframe.page")
+    private String iframePage;
+
 
     private static TestDataProperties testDataProperties;
 
@@ -32,20 +36,23 @@ public class TestDataProperties {
         return testDataProperties;
     }
 
-
-    public String getFirstGame() {
-        return firstGame;
+    public String getMainPage() {
+        return mainPage;
     }
 
-    public int getFirstN() {
-        return firstN;
+    public String getBasicAuthPage() {
+        return basicAuthPage;
     }
 
-    public String getSecondGame() {
-        return secondGame;
+    public String getJavascriptAlertsPage() {
+        return javascriptAlertsPage;
     }
 
-    public int getSecondN() {
-        return secondN;
+    public String getHorizontalSlidePage() {
+        return horizontalSlidePage;
+    }
+
+    public String getIframePage() {
+        return iframePage;
     }
 }

@@ -5,12 +5,8 @@ import ru.qatools.properties.Property;
 import ru.qatools.properties.PropertyLoader;
 import ru.qatools.properties.Resource;
 
-
 @Resource.Classpath("configuration.properties")
 public class ConfigurationProperties {
-
-    @Property("main.page")
-    private String mainPage;
 
     @Property("browser.type")
     private BrowserType browserType;
@@ -29,10 +25,6 @@ public class ConfigurationProperties {
             configProperties = new ConfigurationProperties();
         }
         return configProperties;
-    }
-
-    public String getMainPage() {
-        return mainPage;
     }
 
     public BrowserType getBrowserType() {
