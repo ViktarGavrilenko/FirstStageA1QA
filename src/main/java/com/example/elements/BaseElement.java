@@ -16,22 +16,6 @@ public abstract class BaseElement {
         this.name = name;
     }
 
-    public By getLocator() {
-        return locator;
-    }
-
-    public void setLocator(By locator) {
-        this.locator = locator;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public boolean isDisplayed() {
         return findElement().isDisplayed();
     }

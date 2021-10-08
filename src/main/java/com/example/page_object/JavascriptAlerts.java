@@ -12,34 +12,39 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class JavascriptAlerts extends BaseForm {
 
-    private static Form form = new Form(By.xpath("//div[@id='content']"), "JavascriptAlerts");
-    private static Button btnJsAlert = new Button(By.xpath("//button[@onclick='jsAlert()']"), "BtnJsAlert");
-    private static Button btnJsConfirm = new Button(By.xpath("//button[@onclick='jsConfirm()']"), "BtnJsConfirm");
-    private static Button btnJsPrompt = new Button(By.xpath("//button[@onclick='jsPrompt()']"), "BtnJsPrompt");
-    private static TextField resultText = new TextField(By.xpath("//p[@id='result']"), "resultText");
+    private static final String BTN_PATTERN = "//button[@onclick='%s']";
 
+    private static final Form FORM = new Form(By.xpath("//div[@id='content']"), "JavascriptAlerts");
+    private static final Button BTN_JS_ALERT = new Button(By.xpath(getBtnLocator("jsAlert()")), "BtnJsAlert");
+    private static final Button BTN_JS_CONFIRM = new Button(By.xpath(getBtnLocator("jsConfirm()")), "BtnJsConfirm");
+    private static final Button BTN_JS_PROMPT = new Button(By.xpath(getBtnLocator("jsPrompt()")), "BtnJsPrompt");
+    private static final TextField RESULT_TEXT = new TextField(By.xpath("//p[@id='result']"), "resultText");
 
     public JavascriptAlerts() {
-        super(form, "JavascriptAlertsForm");
+        super(FORM, "JavascriptAlertsForm");
+    }
+
+    public String resultText() {
+        return RESULT_TEXT.getText();
     }
 
     public void clickBtnJsAlert() {
-        btnJsAlert.click();
+        BTN_JS_ALERT.click();
     }
 
     public void clickBtnJsConfirm() {
-        btnJsConfirm.click();
+        BTN_JS_CONFIRM.click();
     }
 
     public void clickBtnJsPrompt() {
-        btnJsPrompt.click();
+        BTN_JS_PROMPT.click();
     }
 
-    public String resultText(){
-        return resultText.getText();
+    private static String getBtnLocator(String name) {
+        return String.format(BTN_PATTERN, name);
     }
 
-    protected Alert waitAlert(){
+    protected Alert waitAlert() {
         return (new WebDriverWait(DriverManager.getDriver(), 5)).until(ExpectedConditions.alertIsPresent());
     }
 
@@ -60,7 +65,7 @@ public class JavascriptAlerts extends BaseForm {
         }
     }
 
-    public void printText(String text){
+    public void printText(String text) {
         Alert alert = waitAlert();
         alert.sendKeys(text);
         alert.accept();
