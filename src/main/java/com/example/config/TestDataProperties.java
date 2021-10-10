@@ -19,6 +19,9 @@ public class TestDataProperties {
     @Property("horizontal.slider.page")
     private String horizontalSlidePage;
 
+    @Property("hovers.page")
+    private String hoversPage;
+
     @Property("iframe.page")
     private String iframePage;
 
@@ -52,7 +55,13 @@ public class TestDataProperties {
         return horizontalSlidePage;
     }
 
+    public String getHoversPage() {
+        return hoversPage;
+    }
+
     public String getIframePage() {
         return iframePage;
     }
+
+
 }

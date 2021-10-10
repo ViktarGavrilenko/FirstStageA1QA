@@ -3,14 +3,11 @@ package com.example.elements;
 import org.openqa.selenium.By;
 
 public class TextField extends BaseElement {
-    public TextField() {
-    }
-
     public TextField(By locator, String name) {
         super(locator, name);
     }
 
-    public String getText(){
+    public String getText() {
         return findElement().getText();
     }
 }

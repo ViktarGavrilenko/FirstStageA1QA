@@ -2,8 +2,8 @@ package com.example.elements;
 
 import org.openqa.selenium.By;
 
-public class Form extends BaseElement {
-    public Form(By locator, String name) {
+public class Image extends BaseElement {
+    public Image(By locator, String name) {
         super(locator, name);
     }
 }
