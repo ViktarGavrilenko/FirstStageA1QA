@@ -32,8 +32,8 @@ public class IframeForm extends BaseForm {
     private static final Button BTN_FONT_SIZES =
             new Button(By.xpath("//div[@title='Font sizes']"), "ButtonFontSizes");
 
-    private static final Button BTN_24PT =
-            new Button(By.xpath("//div[@title='24pt']"), "Button24pt");
+    private static final Button BTN_8PT =
+            new Button(By.xpath("//div[@title='8pt']"), "Button8pt");
 
     private static final String NAME_FRAME = "mce_0_ifr";
 
@@ -76,7 +76,7 @@ public class IframeForm extends BaseForm {
         goToDefaultFrame();
         BTN_FORMAT.click();
         BTN_FONT_SIZES.click();
-        BTN_24PT.click();
+        BTN_8PT.click();
     }
 
     public String getTextNewSize() {
