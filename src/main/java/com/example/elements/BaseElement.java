@@ -1,10 +1,8 @@
 package com.example.elements;
 
 import com.example.core.DriverManager;
-import com.example.core.DriverUtilities;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
@@ -38,22 +36,22 @@ public abstract class BaseElement {
 
     }
 
-    public void moveToElement(){
+    public void moveToElement() {
         Actions actions = new Actions(DriverManager.getDriver());
         actions.moveToElement(findElement()).build().perform();
         LOG.info("Move to " + name);
     }
 
-    public void selectText(int count) {
-        findElement().sendKeys(Keys.SHIFT);
-        findElement().sendKeys();
-    }
-
-
-
-
     public String getAttribute(String name) {
         return findElement().getAttribute(name);
+    }
+
+    public int getSizeHeight() {
+        return findElement().getSize().height;
+    }
+
+    public int getSizeWidth() {
+        return findElement().getSize().width;
     }
 
     protected WebElement findElement() {
@@ -66,5 +64,4 @@ public abstract class BaseElement {
         }
         return element;
     }
-
 }

@@ -4,44 +4,30 @@ import java.awt.*;
 
 public class KeyEvent {
     public static void pressShift() {
-        Robot r = null;
-        try {
-            r = new Robot();
-        } catch (AWTException e) {
-            e.printStackTrace();
-        }
-        r.keyPress(java.awt.event.KeyEvent.VK_SHIFT);
+        getRobot().keyPress(java.awt.event.KeyEvent.VK_SHIFT);
     }
 
     public static void releaseShift() {
-        Robot r = null;
-        try {
-            r = new Robot();
-        } catch (AWTException e) {
-            e.printStackTrace();
-        }
-        r.keyRelease(java.awt.event.KeyEvent.VK_SHIFT);
+        getRobot().keyRelease(java.awt.event.KeyEvent.VK_SHIFT);
     }
 
     public static void clickRight() {
-        Robot r = null;
-        try {
-            r = new Robot();
-        } catch (AWTException e) {
-            e.printStackTrace();
-        }
-        r.keyPress(java.awt.event.KeyEvent.VK_RIGHT);
-        r.keyRelease(java.awt.event.KeyEvent.VK_RIGHT);
+        getRobot().keyPress(java.awt.event.KeyEvent.VK_RIGHT);
+        getRobot().keyRelease(java.awt.event.KeyEvent.VK_RIGHT);
     }
 
     public static void clickLeft() {
-        Robot r = null;
+        getRobot().keyPress(java.awt.event.KeyEvent.VK_LEFT);
+        getRobot().keyRelease(java.awt.event.KeyEvent.VK_LEFT);
+    }
+
+    private static Robot getRobot() {
+        Robot robot = null;
         try {
-            r = new Robot();
+            robot = new Robot();
         } catch (AWTException e) {
             e.printStackTrace();
         }
-        r.keyPress(java.awt.event.KeyEvent.VK_LEFT);
-        r.keyRelease(java.awt.event.KeyEvent.VK_LEFT);
+        return robot;
     }
 }

@@ -11,11 +11,5 @@ public class TextField extends BaseElement {
         return findElement().getText();
     }
 
-    public int getSizeHeight() {
-        return findElement().getSize().height;
-    }
 
-    public int getSizeWidth() {
-        return findElement().getSize().width;
-    }
 }

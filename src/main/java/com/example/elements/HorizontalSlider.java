@@ -14,6 +14,4 @@ public class HorizontalSlider extends BaseElement {
     public int getSizeWidth() {
         return findElement().getSize().width;
     }
-
-
 }

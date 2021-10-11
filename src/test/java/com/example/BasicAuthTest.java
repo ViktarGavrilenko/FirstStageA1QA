@@ -13,5 +13,4 @@ public class BasicAuthTest extends BaseTest {
         basicAuth.userAuthorization("admin", "admin");
         assertEquals(basicAuth.getTextAuthorized(), TEXT, "Проверка авторизации на странице BasicAuth");
     }
-
 }

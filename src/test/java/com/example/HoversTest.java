@@ -29,5 +29,4 @@ public class HoversTest extends BaseTest {
         DriverUtilities.goToBack();
         assertTrue(hoversForm.isDisplayed(), "Проверяем загрузилась ли страница Hovers");
     }
-
 }

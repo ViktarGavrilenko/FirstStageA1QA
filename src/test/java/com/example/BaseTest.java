@@ -11,11 +11,12 @@ public class BaseTest extends Assert {
     private static final Logger LOG = Logger.getLogger(HorizontalSliderTest.class);
 
     @BeforeTest
-    public void writeRunTestToLog(){
+    public void writeRunTestToLog() {
         LOG.info("Run the test");
     }
+
     @AfterTest
-    public void writeCompleteTestToLog(){
+    public void writeCompleteTestToLog() {
         LOG.info("Test completed");
     }
 

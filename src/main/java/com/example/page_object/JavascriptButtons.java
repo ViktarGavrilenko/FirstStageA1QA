@@ -8,11 +8,13 @@ import org.openqa.selenium.By;
 public class JavascriptButtons extends BaseForm {
 
     private static final String BTN_PATTERN = "//button[@onclick='%s']";
-
     private static final Form FORM = new Form(By.xpath("//div[@id='content']"), "JavascriptAlertsForm");
-    private static final Button BTN_JS_ALERT = new Button(By.xpath(getBtnLocator("jsAlert()")), "BtnJsAlert");
-    private static final Button BTN_JS_CONFIRM = new Button(By.xpath(getBtnLocator("jsConfirm()")), "BtnJsConfirm");
-    private static final Button BTN_JS_PROMPT = new Button(By.xpath(getBtnLocator("jsPrompt()")), "BtnJsPrompt");
+    private static final Button BTN_JS_ALERT =
+            new Button(By.xpath(getBtnLocator("jsAlert()")), "BtnJsAlert");
+    private static final Button BTN_JS_CONFIRM =
+            new Button(By.xpath(getBtnLocator("jsConfirm()")), "BtnJsConfirm");
+    private static final Button BTN_JS_PROMPT =
+            new Button(By.xpath(getBtnLocator("jsPrompt()")), "BtnJsPrompt");
     private static final TextField RESULT_TEXT = new TextField(By.xpath("//p[@id='result']"), "resultText");
 
     public JavascriptButtons() {
@@ -38,6 +40,4 @@ public class JavascriptButtons extends BaseForm {
     private static String getBtnLocator(String name) {
         return String.format(BTN_PATTERN, name);
     }
-
-
 }

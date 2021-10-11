@@ -1,6 +1,5 @@
 package com.example.elements;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 
 public class Input extends BaseElement {
