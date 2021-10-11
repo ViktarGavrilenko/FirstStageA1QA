@@ -3,7 +3,6 @@ package com.example;
 import com.example.config.TestDataProperties;
 import com.example.core.DriverUtilities;
 import com.example.page_object.JavascriptButtons;
-import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 
 public class JavascriptAlertsTest extends BaseTest {

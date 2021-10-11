@@ -4,6 +4,7 @@ import com.example.core.DriverManager;
 import com.example.core.DriverUtilities;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
@@ -42,6 +43,14 @@ public abstract class BaseElement {
         actions.moveToElement(findElement()).build().perform();
         LOG.info("Move to " + name);
     }
+
+    public void selectText(int count) {
+        findElement().sendKeys(Keys.SHIFT);
+        findElement().sendKeys();
+    }
+
+
+
 
     public String getAttribute(String name) {
         return findElement().getAttribute(name);

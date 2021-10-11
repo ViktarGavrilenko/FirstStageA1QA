@@ -6,6 +6,8 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.concurrent.TimeUnit;
 
 public class DriverUtilities {
@@ -63,4 +65,8 @@ public class DriverUtilities {
     public static void goToDefaultFrame() {
         DriverManager.getDriver().switchTo().defaultContent();
     }
+
+
+
+
 }

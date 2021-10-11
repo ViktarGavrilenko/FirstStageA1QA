@@ -10,4 +10,12 @@ public class TextField extends BaseElement {
     public String getText() {
         return findElement().getText();
     }
+
+    public int getSizeHeight() {
+        return findElement().getSize().height;
+    }
+
+    public int getSizeWidth() {
+        return findElement().getSize().width;
+    }
 }

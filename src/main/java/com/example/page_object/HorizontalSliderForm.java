@@ -31,8 +31,8 @@ public class HorizontalSliderForm extends BaseForm {
 
     public boolean isSliderValueValid() {
         Float value = null;
-        double minValue = Double.parseDouble(SLIDER.getAttribute("min"));
-        double maxValue = Double.parseDouble(SLIDER.getAttribute("max"));
+        float minValue = Float.parseFloat(SLIDER.getAttribute("min"));
+        float maxValue = Float.parseFloat(SLIDER.getAttribute("max"));
 
         try {
             LOG.info("Slider value " + VALUE_SLIDER.getText());

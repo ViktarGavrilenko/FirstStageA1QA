@@ -18,9 +18,8 @@ public class DriverManager {
     }
 
     public static void close() {
-        getDriver().close();
+        LOG.info("Close the browser and WebDriver");
         getDriver().quit();
         driver = null;
-        LOG.info("Close the browser and WebDriver");
     }
 }
