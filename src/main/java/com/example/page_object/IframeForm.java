@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 
 import static com.example.core.DriverUtilities.goToDefaultFrame;
 import static com.example.core.DriverUtilities.goToFrame;
-import static com.example.utils.KeyEvent.*;
+import static com.example.utils.KeyEventUtils.*;
 
 public class IframeForm extends BaseForm {
     private static final Form FORM = new Form(By.xpath("//div[@id='content']"), "Iframe");
@@ -35,8 +35,10 @@ public class IframeForm extends BaseForm {
     private static final Button BTN_8PT =
             new Button(By.xpath("//div[@title='8pt']"), "Button8pt");
 
-    private static final String NAME_FRAME = "mce_0_ifr";
+    private static final TextField FORMATS =
+            new TextField(By.xpath("//button[@title='Formats']/span"), "Formats");
 
+    private static final String NAME_FRAME = "mce_0_ifr";
 
     public IframeForm() {
         super(FORM, "IframeForm");
@@ -79,8 +81,25 @@ public class IframeForm extends BaseForm {
         BTN_8PT.click();
     }
 
-    public String getTextNewSize() {
+    public String getTextWithNewSize() {
         goToFrame(NAME_FRAME);
         return TEXT_NEW_SIZE.getText();
+    }
+
+    public boolean isDocumentFormattingDefault() {
+        goToDefaultFrame();
+        if (!FORMATS.getText().equals("Paragraph")) {
+            return false;
+        }
+        PanelFormattingForm panelFormatting = new PanelFormattingForm();
+        if (!panelFormatting.isAllButtonDisable()) {
+            return false;
+        }
+        PanelAlignmentForm panelAlignment = new PanelAlignmentForm();
+        if (!panelAlignment.isAllButtonDisable()) {
+            return false;
+        }
+        PanelIndentationForm panelIndentation = new PanelIndentationForm();
+        return panelIndentation.isStateButtonDefault();
     }
 }

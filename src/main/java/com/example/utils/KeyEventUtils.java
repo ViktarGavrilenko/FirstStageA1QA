@@ -2,7 +2,7 @@ package com.example.utils;
 
 import java.awt.*;
 
-public class KeyEvent {
+public class KeyEventUtils {
     public static void pressShift() {
         getRobot().keyPress(java.awt.event.KeyEvent.VK_SHIFT);
     }

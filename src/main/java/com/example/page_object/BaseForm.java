@@ -14,5 +14,4 @@ public abstract class BaseForm {
     public boolean isDisplayed() {
         return element.isDisplayed();
     }
-
 }

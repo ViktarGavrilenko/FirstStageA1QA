@@ -63,6 +63,4 @@ public class DriverUtilities {
     public static void goToDefaultFrame() {
         DriverManager.getDriver().switchTo().defaultContent();
     }
-
-
 }

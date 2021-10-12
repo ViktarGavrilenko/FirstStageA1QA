@@ -16,8 +16,9 @@ public class IframeTest extends BaseTest {
         assertEquals(iframe.getAlignText(), "text-align: left;",
                 "Проверяем, что текст выровнен по левому краю");
         iframe.selectTextInField();
-        assertEquals(iframe.getTextNewSize(), "Your conten", "Проверяем текст с новым размером шрифта");
+        assertEquals(iframe.getTextWithNewSize(), "Your conten", "Проверяем текст с новым размером шрифта");
         iframe.clickBtnNewDocument();
         assertTrue(iframe.isTextEmpty(), "Проверяем пустое ли поле для текста");
+        assertTrue(iframe.isDocumentFormattingDefault(), "Проверяем, что форматирование документа по умолчанию");
     }
 }
