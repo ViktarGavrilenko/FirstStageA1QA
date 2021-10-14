@@ -10,10 +10,16 @@ public class DriverManager {
     private DriverManager() {
     }
 
-    public static WebDriver getDriver() {
+    public static WebDriver createDriver() {
         if (driver == null) {
             driver = DriverFactory.createDriver();
+            DriverUtilities.maximize();
+            DriverUtilities.manageTimeout(10);
         }
+        return driver;
+    }
+
+    public static WebDriver getDriver() {
         return driver;
     }
 

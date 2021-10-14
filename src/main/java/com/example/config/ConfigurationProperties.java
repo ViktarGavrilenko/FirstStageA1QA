@@ -1,38 +1,23 @@
 package com.example.config;
 
-import com.example.core.BrowserType;
-import ru.qatools.properties.Property;
-import ru.qatools.properties.PropertyLoader;
-import ru.qatools.properties.Resource;
+import org.apache.log4j.Logger;
 
-@Resource.Classpath("configuration.properties")
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
 public class ConfigurationProperties {
+    private static final Logger LOG = Logger.getLogger(ConfigurationProperties.class);
 
-    @Property("browser.type")
-    private BrowserType browserType;
-
-    @Property("locale")
-    private String locale;
-
-    private static ConfigurationProperties configProperties;
-
-    private ConfigurationProperties() {
-        PropertyLoader.newInstance().populate(this);
-    }
-
-    public static ConfigurationProperties getInstance() {
-        if (configProperties == null) {
-            configProperties = new ConfigurationProperties();
+    public static Properties createProperties(String fileName) {
+        Properties properties = new Properties();
+        FileInputStream fis;
+        try {
+            fis = new FileInputStream("src/main/resources/" + fileName);
+            properties.load(fis);
+        } catch (IOException e) {
+            LOG.error("Test data file is missing");
         }
-        return configProperties;
+        return properties;
     }
-
-    public BrowserType getBrowserType() {
-        return browserType;
-    }
-
-    public String getLocale() {
-        return locale;
-    }
-
 }

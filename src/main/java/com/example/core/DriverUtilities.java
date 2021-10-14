@@ -9,11 +9,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.concurrent.TimeUnit;
 
 public class DriverUtilities {
-
     private static final Logger LOG = Logger.getLogger(DriverUtilities.class);
 
     public static void manageTimeout(int seconds) {
         DriverManager.getDriver().manage().timeouts().implicitlyWait(seconds, TimeUnit.SECONDS);
+    }
+
+    public static void maximize() {
+        DriverManager.getDriver().manage().window().maximize();
     }
 
     public static void goToUrl(String url) {
