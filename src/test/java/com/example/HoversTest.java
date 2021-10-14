@@ -17,7 +17,7 @@ public class HoversTest extends BaseTest {
 
     @Test(dataProvider = "dataForFile", description = "Тест формы с наведением мыши на пользователей")
     public void testHoversTest(int user) {
-        LOG.info("Navigate to URL" + testDataProperties.getProperty("main.page") +
+        LOG.info("Navigate to URL " + testDataProperties.getProperty("main.page") +
                 testDataProperties.getProperty("hovers.page"));
         DriverUtilities.goToUrl(testDataProperties.getProperty("main.page") +
                 testDataProperties.getProperty("hovers.page"));

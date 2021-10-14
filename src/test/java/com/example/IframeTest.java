@@ -11,7 +11,7 @@ public class IframeTest extends BaseTest {
 
     @Test(description = "Тест формы Iframe")
     public void testIframe() {
-        LOG.info("Navigate to URL" + testDataProperties.getProperty("main.page") +
+        LOG.info("Navigate to URL " + testDataProperties.getProperty("main.page") +
                 testDataProperties.getProperty("iframe.page"));
         DriverUtilities.goToUrl(testDataProperties.getProperty("main.page") +
                 testDataProperties.getProperty("iframe.page"));

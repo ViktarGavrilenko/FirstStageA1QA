@@ -11,7 +11,7 @@ public class JavascriptAlertsTest extends BaseTest {
 
     @Test(description = "Тест формы JavascriptAlerts")
     public void testJavascriptAlerts() {
-        LOG.info("Navigate to URL" + testDataProperties.getProperty("main.page") +
+        LOG.info("Navigate to URL " + testDataProperties.getProperty("main.page") +
                 testDataProperties.getProperty("javascript.alerts.page"));
         DriverUtilities.goToUrl(testDataProperties.getProperty("main.page") +
                 testDataProperties.getProperty("javascript.alerts.page"));
