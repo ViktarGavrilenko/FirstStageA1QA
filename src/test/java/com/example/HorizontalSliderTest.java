@@ -6,15 +6,14 @@ import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 
 public class HorizontalSliderTest extends BaseTest {
-
     private static final Logger LOG = Logger.getLogger(HorizontalSliderTest.class);
+    private static final String URL = TEST_DATA_PROPERTIES.getProperty("main.page") +
+            TEST_DATA_PROPERTIES.getProperty("horizontal.slider.page");
 
     @Test(description = "Тест формы с горизонтальным слайдером")
     public void testHorizontalSliderTest() {
-        LOG.info("Navigate to URL " + testDataProperties.getProperty("main.page") +
-                testDataProperties.getProperty("horizontal.slider.page"));
-        DriverUtilities.goToUrl(testDataProperties.getProperty("main.page") +
-                testDataProperties.getProperty("horizontal.slider.page"));
+        LOG.info("Navigate to URL " + URL);
+        DriverUtilities.goToUrl(URL);
         HorizontalSliderForm horizontalSlider = new HorizontalSliderForm();
         assertTrue(horizontalSlider.isDisplayed(), "Проверяем загрузилась ли страница HorizontalSlider");
         LOG.info("Set random value");

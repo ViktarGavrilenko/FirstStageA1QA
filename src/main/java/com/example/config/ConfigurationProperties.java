@@ -8,15 +8,20 @@ import java.util.Properties;
 
 public class ConfigurationProperties {
     private static final Logger LOG = Logger.getLogger(ConfigurationProperties.class);
+    private static Properties properties;
+    private static String file = "";
 
     public static Properties createProperties(String fileName) {
-        Properties properties = new Properties();
-        FileInputStream fis;
-        try {
-            fis = new FileInputStream("src/main/resources/" + fileName);
-            properties.load(fis);
-        } catch (IOException e) {
-            LOG.error("Test data file is missing");
+        if (properties == null || !file.equals(fileName)) {
+            file = fileName;
+            properties = new Properties();
+            FileInputStream fis;
+            try {
+                fis = new FileInputStream("src/main/resources/" + fileName);
+                properties.load(fis);
+            } catch (IOException e) {
+                LOG.error("Test data file is missing");
+            }
         }
         return properties;
     }

@@ -8,13 +8,13 @@ import org.testng.annotations.Test;
 public class IframeTest extends BaseTest {
 
     private static final Logger LOG = Logger.getLogger(IframeTest.class);
+    private static final String URL = TEST_DATA_PROPERTIES.getProperty("main.page") +
+            TEST_DATA_PROPERTIES.getProperty("iframe.page");
 
     @Test(description = "Тест формы Iframe")
     public void testIframe() {
-        LOG.info("Navigate to URL " + testDataProperties.getProperty("main.page") +
-                testDataProperties.getProperty("iframe.page"));
-        DriverUtilities.goToUrl(testDataProperties.getProperty("main.page") +
-                testDataProperties.getProperty("iframe.page"));
+        LOG.info("Navigate to URL " + URL);
+        DriverUtilities.goToUrl(URL);
         IframeForm iframe = new IframeForm();
         assertTrue(iframe.isDisplayed(), "Проверяем загрузилась ли страница Iframe");
         LOG.info("Align text left");

@@ -8,13 +8,13 @@ import org.testng.annotations.Test;
 public class JavascriptAlertsTest extends BaseTest {
 
     private static final Logger LOG = Logger.getLogger(JavascriptAlertsTest.class);
+    private static final String URL = TEST_DATA_PROPERTIES.getProperty("main.page") +
+            TEST_DATA_PROPERTIES.getProperty("javascript.alerts.page");
 
     @Test(description = "Тест формы JavascriptAlerts")
     public void testJavascriptAlerts() {
-        LOG.info("Navigate to URL " + testDataProperties.getProperty("main.page") +
-                testDataProperties.getProperty("javascript.alerts.page"));
-        DriverUtilities.goToUrl(testDataProperties.getProperty("main.page") +
-                testDataProperties.getProperty("javascript.alerts.page"));
+        LOG.info("Navigate to URL " + URL);
+        DriverUtilities.goToUrl(URL);
         JavascriptButtons javascriptAlerts = new JavascriptButtons();
 
         assertTrue(javascriptAlerts.isDisplayed(), "Проверяем загрузилась ли страница JavascriptAlerts");

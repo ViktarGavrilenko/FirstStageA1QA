@@ -9,6 +9,8 @@ import org.testng.annotations.Test;
 public class HoversTest extends BaseTest {
 
     private static final Logger LOG = Logger.getLogger(HoversTest.class);
+    private static final String URL = TEST_DATA_PROPERTIES.getProperty("main.page") +
+            TEST_DATA_PROPERTIES.getProperty("hovers.page");
 
     @DataProvider
     public Object[][] dataForFile() {
@@ -17,10 +19,8 @@ public class HoversTest extends BaseTest {
 
     @Test(dataProvider = "dataForFile", description = "Тест формы с наведением мыши на пользователей")
     public void testHoversTest(int user) {
-        LOG.info("Navigate to URL " + testDataProperties.getProperty("main.page") +
-                testDataProperties.getProperty("hovers.page"));
-        DriverUtilities.goToUrl(testDataProperties.getProperty("main.page") +
-                testDataProperties.getProperty("hovers.page"));
+        LOG.info("Navigate to URL " + URL);
+        DriverUtilities.goToUrl(URL);
         HoversForm hoversForm = new HoversForm();
         assertTrue(hoversForm.isDisplayed(), "Проверяем загрузилась ли страница Hovers");
         LOG.info("Move the cursor to user label");
