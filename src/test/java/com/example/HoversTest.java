@@ -3,7 +3,6 @@ package com.example;
 import com.example.core.DriverUtilities;
 import com.example.page_object.HoversForm;
 import org.apache.log4j.Logger;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class HoversTest extends BaseTest {
@@ -12,12 +11,8 @@ public class HoversTest extends BaseTest {
     private static final String URL = TEST_DATA_PROPERTIES.getProperty("main.page") +
             TEST_DATA_PROPERTIES.getProperty("hovers.page");
 
-    @DataProvider
-    public Object[][] dataForFile() {
-        return new Object[][]{{1}, {3}};
-    }
-
-    @Test(dataProvider = "dataForFile", description = "Тест формы с наведением мыши на пользователей")
+    @Test(dataProvider = "hovers", dataProviderClass = DP.class,
+            description = "Тест формы с наведением мыши на пользователей")
     public void testHoversTest(int user) {
         LOG.info("Navigate to URL " + URL);
         DriverUtilities.goToUrl(URL);
