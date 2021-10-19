@@ -20,13 +20,13 @@ public class HorizontalSliderForm extends BaseForm {
         super(FORM, "HorizontalSlider");
     }
 
-    public void SetRandomValueSlider() {
+    public void setRandomValueSlider() {
         float minValue = Float.parseFloat(SLIDER.getAttribute("min"));
         float maxValue = Float.parseFloat(SLIDER.getAttribute("max"));
         int sliderHeight = SLIDER.getSizeHeight();
         int sliderWidth = SLIDER.getSizeWidth();
-        SLIDER.click(valueForSlider(sliderWidth, maxValue * 2, minValue), sliderHeight / 2);
         LOG.info("Set a random value on the slider");
+        SLIDER.click(valueForSlider(sliderWidth, maxValue * 2, minValue), sliderHeight / 2);
     }
 
     public boolean isSliderValueValid() {
@@ -41,10 +41,6 @@ public class HorizontalSliderForm extends BaseForm {
             LOG.error("Incorrect value in the slider");
         }
 
-        if (value >= minValue && value <= maxValue) {
-            return true;
-        } else {
-            return false;
-        }
+        return value >= minValue && value <= maxValue;
     }
 }

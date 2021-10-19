@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class IframeTest extends BaseTest {
 
     private static final Logger LOG = Logger.getLogger(IframeTest.class);
-    private static final String URL = TEST_DATA_PROPERTIES.getProperty("main.page") +
+    private static final String URL = CONFIGURATION_PROPERTIES.getProperty("main.page") +
             TEST_DATA_PROPERTIES.getProperty("iframe.page");
 
     @Test(description = "Тест формы Iframe")
@@ -16,17 +16,19 @@ public class IframeTest extends BaseTest {
         LOG.info("Navigate to URL " + URL);
         DriverUtilities.goToUrl(URL);
         IframeForm iframe = new IframeForm();
-        assertTrue(iframe.isDisplayed(), "Проверяем загрузилась ли страница Iframe");
+        assertTrue(iframe.isDisplayed(), "Страница Iframe не загрузилась");
         LOG.info("Align text left");
         iframe.clickBtnAlignLeft();
         assertEquals(iframe.getAlignText(), "text-align: left;",
-                "Проверяем, что текст выровнен по левому краю");
+                "Текст не выровнен по левому краю");
         LOG.info("For the first half of text symbols change font size");
         iframe.selectTextInField();
-        assertEquals(iframe.getTextWithNewSize(), "Your conten", "Проверяем текст с новым размером шрифта");
+        assertEquals(iframe.getTextWithNewSize(), "Your conten",
+                "Текст с новым размером шрифта не соответствует ожидаемому");
         LOG.info("Click File -> New document");
         iframe.clickBtnNewDocument();
-        assertTrue(iframe.isTextEmpty(), "Проверяем пустое ли поле для текста");
-        assertTrue(iframe.isDocumentFormattingDefault(), "Проверяем, что форматирование документа по умолчанию");
+        assertTrue(iframe.isTextEmpty(), "Поле для текста не пустое");
+        assertTrue(iframe.isDocumentFormattingDefault(),
+                "Документ не соответствует форматированию по умолчанию");
     }
 }

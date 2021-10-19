@@ -1,6 +1,5 @@
 package com.example.page_object;
 
-import com.example.core.DriverUtilities;
 import com.example.elements.Form;
 import com.example.elements.TextField;
 import org.apache.log4j.Logger;
@@ -18,12 +17,5 @@ public class BasicAuthForm extends BaseForm {
 
     public String getTextAuthorized() {
         return TEXT_AUTHORIZED.getText();
-    }
-
-    public void userAuthorization(String login, String password, String url) {
-        String logData = login + ":" + password + "@";
-        url = new StringBuilder(url).insert(url.indexOf("//") + 2, logData).toString();
-        DriverUtilities.goToUrl(url);
-        LOG.info("Enter your username and password");
     }
 }

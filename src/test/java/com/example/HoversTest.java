@@ -8,27 +8,27 @@ import org.testng.annotations.Test;
 public class HoversTest extends BaseTest {
 
     private static final Logger LOG = Logger.getLogger(HoversTest.class);
-    private static final String URL = TEST_DATA_PROPERTIES.getProperty("main.page") +
+    private static final String URL = CONFIGURATION_PROPERTIES.getProperty("main.page") +
             TEST_DATA_PROPERTIES.getProperty("hovers.page");
 
-    @Test(dataProvider = "hovers", dataProviderClass = DP.class,
+    @Test(dataProvider = "hovers", dataProviderClass = DataProviderForTests.class,
             description = "Тест формы с наведением мыши на пользователей")
     public void testHoversTest(int user) {
         LOG.info("Navigate to URL " + URL);
         DriverUtilities.goToUrl(URL);
         HoversForm hoversForm = new HoversForm();
-        assertTrue(hoversForm.isDisplayed(), "Проверяем загрузилась ли страница Hovers");
+        assertTrue(hoversForm.isDisplayed(), "Страница Hovers не загрузилась");
         LOG.info("Move the cursor to user label");
         assertEquals(hoversForm.getTextUser(user), "name: user" + user,
-                "Проверяем текс после наведения на картинку");
-        assertTrue(hoversForm.isUrlProfile(user), "Проверяем отображается ли ссылка на профиль");
+                "При наведенни на картинку текст не совпадает");
+        assertTrue(hoversForm.isUrlProfile(user), "Ссылка на профиль не отображается");
         String urlProfile = hoversForm.getUrl(user);
         LOG.info("Click user label");
         hoversForm.clickUrl(user);
         assertEquals(DriverUtilities.getCurrentUrl(), urlProfile,
-                "Сверяем что текущий URL соответствует ссылке из шага 2");
+                "URL не соответствует ссылке из шага 2");
         LOG.info("Back to the previous page");
         DriverUtilities.goToBack();
-        assertTrue(hoversForm.isDisplayed(), "Проверяем загрузилась ли страница Hovers");
+        assertTrue(hoversForm.isDisplayed(), "Страница Hovers не загрузилась");
     }
 }

@@ -15,6 +15,7 @@ public abstract class BaseForm {
     }
 
     public boolean isDisplayed() {
+        LOG.info("Checking the " + name + " is displayed");
         return element.isDisplayed();
     }
 }

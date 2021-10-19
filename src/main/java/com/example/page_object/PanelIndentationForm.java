@@ -16,7 +16,7 @@ public class PanelIndentationForm extends BaseForm {
     }
 
     public boolean isStateButtonDefault() {
-        List<WebElement> buttons = PANEL_NAME.getButtonWithPanel(BUTTONS);
+        List<WebElement> buttons = PANEL_NAME.getButtonsFromPanel(BUTTONS);
         if (buttons.size() == 2) {
             if (!Boolean.parseBoolean(buttons.get(0).getAttribute("aria-disabled"))) {
                 return false;

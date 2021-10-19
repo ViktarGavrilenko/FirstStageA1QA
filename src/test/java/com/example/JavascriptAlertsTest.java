@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class JavascriptAlertsTest extends BaseTest {
 
     private static final Logger LOG = Logger.getLogger(JavascriptAlertsTest.class);
-    private static final String URL = TEST_DATA_PROPERTIES.getProperty("main.page") +
+    private static final String URL = CONFIGURATION_PROPERTIES.getProperty("main.page") +
             TEST_DATA_PROPERTIES.getProperty("javascript.alerts.page");
 
     @Test(description = "Тест формы JavascriptAlerts")
@@ -17,32 +17,32 @@ public class JavascriptAlertsTest extends BaseTest {
         DriverUtilities.goToUrl(URL);
         JavascriptButtons javascriptAlerts = new JavascriptButtons();
 
-        assertTrue(javascriptAlerts.isDisplayed(), "Проверяем загрузилась ли страница JavascriptAlerts");
+        assertTrue(javascriptAlerts.isDisplayed(), "Страница JavascriptAlerts не загрузилась");
         LOG.info("Click Click for JS Alert button");
         javascriptAlerts.clickBtnJsAlert();
         assertEquals(DriverUtilities.getTextAlert(), "I am a JS Alert",
-                "Проверяем текст на соответствие: I am a JS Alert");
+                "Текст не соответствует: I am a JS Alert");
         LOG.info("Click OK button");
         DriverUtilities.clickBtnOkOnAlert();
-        assertFalse(DriverUtilities.isAlertPresent(), "Проверяем закрыто ли оповещение");
+        assertFalse(DriverUtilities.isAlertPresent(), "Оповещение не закрыто");
         assertEquals(javascriptAlerts.resultText(), "You successfully clicked an alert",
-                "Проверяем текст после закрытия оповещения JS Alert");
+                "Текст после закрытия оповещения JS Alert не соответствует ожидаемому");
         LOG.info("Click Click for JS Confirm button");
         javascriptAlerts.clickBtnJsConfirm();
         assertEquals(DriverUtilities.getTextAlert(), "I am a JS Confirm",
-                "Проверяем текст на соответствие: I am a JS Confirm");
+                "Текст не соответствует: I am a JS Confirm");
         LOG.info("Click OK button");
         DriverUtilities.clickBtnOkOnAlert();
-        assertFalse(DriverUtilities.isAlertPresent(), "Проверяем закрыто ли оповещение");
+        assertFalse(DriverUtilities.isAlertPresent(), "Оповещение не закрыто");
         assertEquals(javascriptAlerts.resultText(), "You clicked: Ok",
-                "Проверяем текст после закрытия оповещения JS Confirm");
+                "Текст после закрытия оповещения JS Confirm не соответствует ожидаемому");
         LOG.info("Click Click for JS Prompt button");
         javascriptAlerts.clickBtnJsPrompt();
         assertEquals(DriverUtilities.getTextAlert(), "I am a JS prompt",
-                "Проверяем текст на соответствие: I am a JS prompt");
+                "Текст не соответствует: I am a JS prompt");
         LOG.info("Input random text and press OK button");
-        DriverUtilities.printText("Hello Selenium");
+        DriverUtilities.printTextToAlert("Hello Selenium");
         assertEquals(javascriptAlerts.resultText(), "You entered: Hello Selenium",
-                "Проверяем текст после закрытия оповещения JS prompt");
+                "Текст после закрытия оповещения JS prompt не соответствует ожидаемому");
     }
 }

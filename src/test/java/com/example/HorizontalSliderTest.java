@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class HorizontalSliderTest extends BaseTest {
     private static final Logger LOG = Logger.getLogger(HorizontalSliderTest.class);
-    private static final String URL = TEST_DATA_PROPERTIES.getProperty("main.page") +
+    private static final String URL = CONFIGURATION_PROPERTIES.getProperty("main.page") +
             TEST_DATA_PROPERTIES.getProperty("horizontal.slider.page");
 
     @Test(description = "Тест формы с горизонтальным слайдером")
@@ -15,9 +15,9 @@ public class HorizontalSliderTest extends BaseTest {
         LOG.info("Navigate to URL " + URL);
         DriverUtilities.goToUrl(URL);
         HorizontalSliderForm horizontalSlider = new HorizontalSliderForm();
-        assertTrue(horizontalSlider.isDisplayed(), "Проверяем загрузилась ли страница HorizontalSlider");
+        assertTrue(horizontalSlider.isDisplayed(), "Страница HorizontalSlider не загрузилась");
         LOG.info("Set random value");
-        horizontalSlider.SetRandomValueSlider();
-        assertTrue(horizontalSlider.isSliderValueValid(), "Проверяем допустимо ли значение ползунка");
+        horizontalSlider.setRandomValueSlider();
+        assertTrue(horizontalSlider.isSliderValueValid(), "Значение ползунка не допустимо");
     }
 }

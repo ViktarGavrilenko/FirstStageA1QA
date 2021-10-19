@@ -5,7 +5,8 @@ import org.openqa.selenium.By;
 
 public class PanelFormattingForm extends BaseForm {
 
-    private static final PanelWithButtons PANEL_NAME = new PanelWithButtons(By.xpath("//div[@title='formatting']"), "PanelFormatting");
+    private static final PanelWithButtons PANEL_NAME =
+            new PanelWithButtons(By.xpath("//div[@title='formatting']"), "PanelFormatting");
     private static final By BUTTONS = By.xpath("//div[@title='formatting']//button");
 
     PanelFormattingForm() {
@@ -13,6 +14,6 @@ public class PanelFormattingForm extends BaseForm {
     }
 
     public boolean isAllButtonDisable() {
-        return PANEL_NAME.isAllButtonsDisable(PANEL_NAME.getButtonWithPanel(BUTTONS));
+        return PANEL_NAME.isAllButtonsDisable(PANEL_NAME.getButtonsFromPanel(BUTTONS));
     }
 }
