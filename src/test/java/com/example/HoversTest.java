@@ -1,7 +1,7 @@
 package com.example;
 
 import com.example.core.DriverUtilities;
-import com.example.page_object.HoversForm;
+import com.example.pageobject.HoversForm;
 import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 

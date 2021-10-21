@@ -1,7 +1,7 @@
 package com.example;
 
 import com.example.core.DriverUtilities;
-import com.example.page_object.HorizontalSliderForm;
+import com.example.pageobject.HorizontalSliderForm;
 import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 
@@ -17,7 +17,7 @@ public class HorizontalSliderTest extends BaseTest {
         HorizontalSliderForm horizontalSlider = new HorizontalSliderForm();
         assertTrue(horizontalSlider.isDisplayed(), "Страница HorizontalSlider не загрузилась");
         LOG.info("Set random value");
-        horizontalSlider.setRandomValueSlider();
+        horizontalSlider.setValueSlider((float) (Math.random() * horizontalSlider.getMaxValueSlider()));
         assertTrue(horizontalSlider.isSliderValueValid(), "Значение ползунка не допустимо");
     }
 }

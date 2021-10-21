@@ -1,4 +1,4 @@
-package com.example.page_object;
+package com.example.pageobject;
 
 import com.example.elements.PanelWithButtons;
 import org.openqa.selenium.By;

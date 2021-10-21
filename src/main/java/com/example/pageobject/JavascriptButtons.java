@@ -1,4 +1,4 @@
-package com.example.page_object;
+package com.example.pageobject;
 
 import com.example.elements.Button;
 import com.example.elements.Form;

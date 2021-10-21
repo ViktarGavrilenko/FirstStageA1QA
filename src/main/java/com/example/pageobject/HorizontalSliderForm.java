@@ -1,12 +1,10 @@
-package com.example.page_object;
+package com.example.pageobject;
 
 import com.example.elements.Form;
 import com.example.elements.HorizontalSlider;
 import com.example.elements.TextField;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-
-import static com.example.utils.ArithmeticUtils.valueForSlider;
 
 public class HorizontalSliderForm extends BaseForm {
     private static final Logger LOG = Logger.getLogger(HorizontalSliderForm.class);
@@ -20,13 +18,16 @@ public class HorizontalSliderForm extends BaseForm {
         super(FORM, "HorizontalSlider");
     }
 
-    public void setRandomValueSlider() {
+    public void setValueSlider(float value) {
         float minValue = Float.parseFloat(SLIDER.getAttribute("min"));
         float maxValue = Float.parseFloat(SLIDER.getAttribute("max"));
-        int sliderHeight = SLIDER.getSizeHeight();
         int sliderWidth = SLIDER.getSizeWidth();
-        LOG.info("Set a random value on the slider");
-        SLIDER.click(valueForSlider(sliderWidth, maxValue * 2, minValue), sliderHeight / 2);
+        if (value > maxValue || value < minValue) {
+            LOG.error("Invalid slider value");
+        } else {
+            int valueHorizontal = Math.round((value - minValue) * sliderWidth / (maxValue - minValue));
+            SLIDER.click(valueHorizontal - sliderWidth / 2, 0);
+        }
     }
 
     public boolean isSliderValueValid() {
@@ -42,5 +43,9 @@ public class HorizontalSliderForm extends BaseForm {
         }
 
         return value >= minValue && value <= maxValue;
+    }
+
+    public float getMaxValueSlider() {
+        return Float.parseFloat(SLIDER.getAttribute("max"));
     }
 }

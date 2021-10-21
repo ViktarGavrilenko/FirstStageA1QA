@@ -1,7 +1,7 @@
 package com.example;
 
 import com.example.core.DriverUtilities;
-import com.example.page_object.JavascriptButtons;
+import com.example.pageobject.JavascriptButtons;
 import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 

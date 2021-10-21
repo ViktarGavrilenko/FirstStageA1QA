@@ -11,9 +11,9 @@ import java.util.Properties;
 
 public class BaseTest extends Assert {
     private static final Logger LOG = Logger.getLogger(HorizontalSliderTest.class);
-    public static final Properties TEST_DATA_PROPERTIES =
+    protected static final Properties TEST_DATA_PROPERTIES =
             ConfigurationProperties.createProperties("testData.properties");
-    public static final Properties CONFIGURATION_PROPERTIES =
+    protected static final Properties CONFIGURATION_PROPERTIES =
             ConfigurationProperties.createProperties("configuration.properties");
 
     @BeforeTest

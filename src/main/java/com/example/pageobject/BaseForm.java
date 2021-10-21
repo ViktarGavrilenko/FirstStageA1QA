@@ -1,4 +1,4 @@
-package com.example.page_object;
+package com.example.pageobject;
 
 import com.example.elements.BaseElement;
 import org.apache.log4j.Logger;

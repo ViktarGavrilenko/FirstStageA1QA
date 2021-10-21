@@ -1,6 +1,6 @@
 package com.example;
 
-import com.example.page_object.BasicAuthForm;
+import com.example.pageobject.BasicAuthForm;
 import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 
