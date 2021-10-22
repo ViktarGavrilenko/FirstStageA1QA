@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 
 import static com.example.core.DriverUtilities.userAuthorization;
+import static org.testng.Assert.assertEquals;
 
 public class BasicAuthTest extends BaseTest {
 

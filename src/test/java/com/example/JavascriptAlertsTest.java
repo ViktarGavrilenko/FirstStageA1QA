@@ -5,6 +5,8 @@ import com.example.pageobject.JavascriptButtons;
 import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 
+import static org.testng.Assert.*;
+
 public class JavascriptAlertsTest extends BaseTest {
 
     private static final Logger LOG = Logger.getLogger(JavascriptAlertsTest.class);

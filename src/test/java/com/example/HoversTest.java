@@ -5,6 +5,9 @@ import com.example.pageobject.HoversForm;
 import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
 public class HoversTest extends BaseTest {
 
     private static final Logger LOG = Logger.getLogger(HoversTest.class);

@@ -5,6 +5,9 @@ import com.example.pageobject.IframeForm;
 import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
 public class IframeTest extends BaseTest {
 
     private static final Logger LOG = Logger.getLogger(IframeTest.class);

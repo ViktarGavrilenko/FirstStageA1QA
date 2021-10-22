@@ -5,6 +5,8 @@ import com.example.pageobject.HorizontalSliderForm;
 import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 
+import static org.testng.Assert.assertTrue;
+
 public class HorizontalSliderTest extends BaseTest {
     private static final Logger LOG = Logger.getLogger(HorizontalSliderTest.class);
     private static final String URL = CONFIGURATION_PROPERTIES.getProperty("main.page") +
