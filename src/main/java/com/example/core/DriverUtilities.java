@@ -3,7 +3,9 @@ package com.example.core;
 import com.example.config.ConfigurationProperties;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -88,5 +90,10 @@ public class DriverUtilities {
         String logData = login + ":" + password + "@";
         url = new StringBuilder(url).insert(url.indexOf("//") + 2, logData).toString();
         DriverUtilities.goToUrl(url);
+    }
+
+    public static void clickBtnWithJS(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) DriverManager.getDriver();
+        js.executeScript("arguments[0].click();", element);
     }
 }

@@ -40,4 +40,16 @@ public class JavascriptButtons extends BaseForm {
     private static String getBtnLocator(String name) {
         return String.format(BTN_PATTERN, name);
     }
+
+    public void clickBtnJSAlertWithJS() {
+        BTN_JS_ALERT.clickJS();
+    }
+
+    public void clickBtnJSConfirmWithJS() {
+        BTN_JS_CONFIRM.clickJS();
+    }
+
+    public void clickBtnJSPromptWithJS() {
+        BTN_JS_PROMPT.clickJS();
+    }
 }
