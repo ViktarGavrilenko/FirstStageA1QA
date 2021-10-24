@@ -65,4 +65,8 @@ public abstract class BaseElement {
         }
         return element;
     }
+
+    public boolean isElementOnPage() {
+        return !DriverManager.getDriver().findElements(locator).isEmpty();
+    }
 }

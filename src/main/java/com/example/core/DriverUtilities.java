@@ -17,10 +17,11 @@ public class DriverUtilities {
     private static final Properties CONFIG_PROPERTIES =
             ConfigurationProperties.createProperties("configuration.properties");
     private static final int TIME_OUT = Integer.parseInt(CONFIG_PROPERTIES.getProperty("timeout"));
+    private static final JavascriptExecutor JS = (JavascriptExecutor) DriverManager.getDriver();
 
-    public static void manageTimeout(int seconds) {
-        LOG.info("Establishing expectation " + seconds);
-        DriverManager.getDriver().manage().timeouts().implicitlyWait(seconds, TimeUnit.SECONDS);
+    public static void manageTimeout(int milliSecond) {
+        LOG.info("Establishing expectation " + milliSecond + " milliseconds");
+        DriverManager.getDriver().manage().timeouts().implicitlyWait(milliSecond, TimeUnit.MILLISECONDS);
     }
 
     public static void maximize() {
@@ -93,7 +94,12 @@ public class DriverUtilities {
     }
 
     public static void clickBtnWithJS(WebElement element) {
-        JavascriptExecutor js = (JavascriptExecutor) DriverManager.getDriver();
-        js.executeScript("arguments[0].click();", element);
+        LOG.info("Clicking the button using the javascript method");
+        JS.executeScript("arguments[0].click();", element);
+    }
+
+    public static void scrollDownPageJS() {
+        LOG.info("Scrolling the page using the javascript method");
+        JS.executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
 }

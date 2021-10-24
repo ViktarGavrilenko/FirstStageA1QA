@@ -14,4 +14,8 @@ public class TextField extends BaseElement {
         LOG.info("Get text from element");
         return findElement().getText();
     }
+
+    public int getNumberParagraphs(By locator) {
+        return findElement().findElements(locator).size();
+    }
 }
