@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeTest;
 import java.util.Properties;
 
 public class BaseTest {
-    private static final Logger LOG = Logger.getLogger(HorizontalSliderTest.class);
+    private static final Logger LOG = Logger.getLogger(BaseTest.class);
     protected static final Properties TEST_DATA_PROPERTIES =
             ConfigurationProperties.createProperties("testData.properties");
     protected static final Properties CONFIGURATION_PROPERTIES =

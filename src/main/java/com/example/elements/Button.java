@@ -12,4 +12,8 @@ public class Button extends BaseElement {
     public void clickJS() {
         clickBtnWithJS(findElement());
     }
+
+    public void uploadFileUseSendKeys(String filePath) {
+        findElement().sendKeys(filePath);
+    }
 }
